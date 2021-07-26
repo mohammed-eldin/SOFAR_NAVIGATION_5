@@ -19,6 +19,8 @@ This assignemt made by group Navigation-05
 
 The follwoing graph show the software components that has been used to implement this assignment.
 
+![Untitled Diagram (4) (1) (1) (2)](https://user-images.githubusercontent.com/25705086/126991813-e42b2e0a-8d94-46d3-be47-920540d4107d.png)
+
 ## Installing
 
 We tested the project in two different methods.
