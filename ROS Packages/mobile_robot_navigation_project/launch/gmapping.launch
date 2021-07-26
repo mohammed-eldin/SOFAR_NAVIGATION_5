@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!-- 
+  This launch file include the parameters that required for mapping that based of laser scan sensor which includes:
+    - odom_frame: The frame attached to the odometry system.
+    - base_frame: indicates the frame that corresponds to the mobile base in the
+      transform tree.
+    - map_frame: The frame attached to the map.
+    - map_update_interval: time(in seconds) between two updates of the map. In the ideal case,
+      the update would be instantaneous, but it would cost too much for the CPU to do that. 
+      Therefore, we use a interval, for which the default is 5 seconds.
+    - maxUrange: the maximum range for which the laser issues valid data. Any datafarther from this 
+      distance will be discarded. So, it should be just less than sensor range
+      maxRange: The maximum range of the sensor.
+    - particles: sets the number of particles used in the filter.
+    - iterations: the number of iterations of the scanmatcher.
+    - linearUpdate, angularUpdate and temporalUpdate: thresholds for a scan request.
+      temporalUpdate: asks for a new scan whenever the time passed
+      since the last scan exceeds the time indicated in the parameter
+      linearUpdate and angularUpdate: ask for scan when the robot translates or
+      rotates(respectively) the amount specified in the parameters.
+    - xmin, ymin, xmax and ymax: these four coordinates form the map
+      size.
+    - delta: Resolution of the map (in m/occupancy grid block)
+    
+-->
+<launch>
+
+  <arg name="scan_topic" default="scan" />
+
+  <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping">
+    <rosparam>
+      odom_frame: odom
+      base_frame: base_link
+      map_frame: map
+
+      map_update_interval: 0.5
+
+      maxUrange: 19.5
+      maxRange: 20.5
+      particles: 100
+
+      # Update frequencies
+      linearUpdate: 0.3
+      angularUpdate: 0.2
+      temporalUpdate: 2.0
+      resampleThreshold: 0.5
+
+      # Initial Map Size
+      xmin: -100.0
+      ymin: -100.0
+      xmax: 100.0
+      ymax: 100.0
+      delta: 0.15
+
+      # All default
+      sigma: 0.05
+      kernelSize: 1
+      lstep: 0.05
+      astep: 0.05
+      iterations: 5
+      lsigma: 0.075
+      ogain: 3.0
+      lskip: 0
+      llsamplerange: 0.01
+      llsamplestep: 0.01
+      lasamplerange: 0.005
+      lasamplestep: 0.005
+      transform_publish_period: 0.005
+      #occ_thresh: 0.25
+      #minimumScore: 0
+      #srr: 0.1
+      #srt: 0.1
+      #str: 0.1
+      #stt: 0.1
+      
+    </rosparam>
+    <remap from="scan" to="laser_scan"/>
+  </node>
+</launch>

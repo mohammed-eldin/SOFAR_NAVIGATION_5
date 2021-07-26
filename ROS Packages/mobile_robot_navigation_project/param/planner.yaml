@@ -1,0 +1,62 @@
+controller_frequency: 5.0
+recovery_behaviour_enabled: true
+
+NavfnROS:
+  # Specifies whether or not to allow navfn to create plans that traverse unknown space.
+  allow_unknown: true
+  
+  # A tolerance on the goal point for the planner.
+  default_tolerance: 0.1
+
+DWAPlannerROS:
+  # Robot configuration parameters
+  # acc_lim_x, acc_lim_y and acc_lim_theta: accelerations limits
+  # the first two are in meters per squared second and the last is radians per squared second
+  acc_lim_x: 2.5
+  acc_lim_y: 0
+  acc_lim_th: 2.2
+  # min_vel x and max_vel x: The minimum and maximum velocities(in meters/second)
+  # allowed when sending data to the mobile base
+  # The minimum velocity should be great enough to overcome friction
+  # The maximum velocity adjust is good to limit the robot’s velocity in narrow environments
+  max_vel_x: 1.0
+  min_vel_x: -0.1
+  max_vel_y: 0
+  min_vel_y: 0
+  # The absolute value of the maximum translational velocity for the robot in m/s
+  max_trans_vel: 0.5
+  # The absolute value of the minimum translational velocity for the robot in m/s
+  min_trans_vel: 0.1
+  # The absolute value of the maximum rotational velocity for the robot in rad/s
+  max_rot_vel: 1.0
+  # The absolute value of the minimum rotational velocity for the robot in rad/s
+  min_rot_vel: 0.2
+
+  # Goal Tolerance Parameters
+  # The tolerance in radians for the controller in yaw/rotation when achieving its goal
+  yaw_goal_tolerance: 0.1
+  # The tolerance in meters for the controller in the x & y distance when achieving a goal
+  xy_goal_tolerance: 0.2
+  # If goal tolerance is latched, if the robot ever reaches the goal xy location it will simply rotate in place
+  # , even if it ends up outside the goal tolerance while it is doing so.
+  latch_xy_goal_tolerance: false
+
+  # # Forward Simulation Parameters
+  # sim_time: 2.0
+  # sim_granularity: 0.025
+  # vx_samples: 3
+  # vy_samples: 0
+  # vtheta_samples: 20
+  # penalize_negative_x: true
+
+  # # Trajectory scoring parameters
+  # path_distance_bias: 32.0 # The weighting for how much the controller should stay close to the path it was given
+  # goal_distance_bias: 24.0 # The weighting for how much the controller should attempt to reach its local goal, also controls speed
+  # occdist_scale: 255 # The weighting for how much the controller should attempt to avoid obstacles
+  # forward_point_distance: 0.325 # The distance from the center point of the robot to place an additional scoring point, in meters
+  # stop_time_buffer: 0.2  # The amount of time that the robot must stThe absolute value of the veolicty at which to start scaling the robot's footprint, in m/sop before a collision in order for a trajectory to be considered valid in seconds
+  # scaling_speed: 0.25 # The absolute value of the veolicty at which to start scaling the robot's footprint, in m/s
+  # max_scaling_factor: 0.2 # The maximum factor to scale the robot's footprint by
+
+  # # Oscillation Prevention Parameters
+  # oscillation_reset_dist: 0.25 #How far the robot must travel in meters before oscillation flags are reset (double, default: 0.05)

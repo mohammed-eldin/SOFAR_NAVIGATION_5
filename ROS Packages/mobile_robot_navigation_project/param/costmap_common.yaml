@@ -1,0 +1,66 @@
+# footprint: Create a custom footprint for more precise representation of the robot
+footprint: [[-0.5, -0.33], [-0.5, 0.33], [0.5, 0.33], [0.5, -0.33]]
+
+# footprint padding: Is summed at each of the footprint points, both at
+# the x and y coordinates.
+footprint_padding: 0.01
+
+# robot base frame: Indicates the transformation frame of the robot’s base link.
+robot_base_frame: base_link
+
+# update frequency/publish frequency: The frequency(in Hz) for map update/publication of the display data.
+update_frequency: 4.0
+publish_frequency: 3.0
+
+# transform tolerance: This parameter must be set in an interval that allows 
+# certain tolerable delays in the transform publicationand detects missing transforms
+# , so the navigation stack stops in case of flaws in the system."""
+transform_tolerance: 0.5
+
+# resolution: resolution of the map in m per cell. This parameter is usually
+# higher in smaller maps(local).
+resolution: 0.05
+
+# Obstacle range: The maximum distance(in m) that will be considered
+# when taking the obstacle data and putting it to the costmap
+obstacle_range: 5.5
+
+# Raytrace range: the maximum distance(in m) that will be considered 
+# when taking the free space around the robot and putting it to the costmap
+raytrace_range: 6.0
+
+# layer definitions
+# static map: indicates whether the system uses or not a static map.
+static:
+    map_topic: /map
+    subscribe_to_updates: true
+
+# Observation sources: This last parameter is responsible for choosing the source
+# of the sensor data, which included the subscribed topic
+obstacles_laser:
+    observation_sources: laser
+    laser: {data_type: LaserScan, clearing: true, marking: true, topic: laser_scan, inf_is_valid: true}
+
+# Inflation Radius: because of the robot is not a circular robot, it is important 
+# to set it to the ”maximum radius” of the robot, so the costmap creates a inflation
+# around obstacles and the robot doesn’t collide"
+inflation:
+    inflation_radius: 1.0
+
+
+#– width and height: width and height of the map, in meters.
+
+
+#– max obstacle height and min obstacle height: these parameters set the area
+#that will consider the sensor data as valid data. The most common is setting
+#the min height near the ground height and the max height slightly greater
+#than the robot’s height.
+
+
+#map type: just here to enforce we are using a costmap.
+#cost scaling factor: this parameter sets the scaling factor that applies over
+#the inflation. This parameter can be adjusted so the robot has a more ag-
+#gressive or conservative behaviour near obstacles.
+#e −cost scaling f actor×(distance f rom obstacle−inscribed radius)×
+#(costmap 2d::IN SCRIBED IN F LAT ED OBST ACLE−1)
+#""""

@@ -1,0 +1,14 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/alaaeldin/exp_ws/devel/lib/python3/dist-packages",
+        "/home/alaaeldin/ws/devel/lib/python3/dist-packages",
+        "/home/alaaeldin/auto/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/alaaeldin/exp_ws/devel/lib/python3/dist-packages",
+        "/home/alaaeldin/ws/devel/lib/python3/dist-packages",
+        "/home/alaaeldin/auto/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ]
+}

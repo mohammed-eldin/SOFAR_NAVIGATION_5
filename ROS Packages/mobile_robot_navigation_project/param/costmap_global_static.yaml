@@ -1,0 +1,14 @@
+global_frame: map
+rolling_window: false
+track_unknown_space: true
+
+plugins:
+  - {name: static,                  type: "costmap_2d::StaticLayer"}
+  - {name: inflation,               type: "costmap_2d::InflationLayer"}
+
+
+#The costmap should have the same plugins statement at the end. More-
+#over, you can add any extra layers you want. The structure of the topics will
+#change a little bit, since the footprint is now inside the layers and the costmaps
+#are divided in multiple topics. You can get to know a little more about this
+#organization in the Using rviz section."
