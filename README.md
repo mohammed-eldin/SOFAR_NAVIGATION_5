@@ -100,6 +100,8 @@ roslaunch mobile_robot_navigation_project navigation.launch
 ### In the Unity side
 We have to open the already implemented environment and add the IP address of ROS machine into the Scene section in Unity. To avoid any errors, wait until launching all the nodes on the ROS side then press the play button in the Unity in the middle top window. If the connection is running correct, we would have a window that give us the date received from the ROS and the data sent by the Unity on a window on the left corner.
 
+![Screenshot from 2021-07-26 05-48-48](https://user-images.githubusercontent.com/25705086/126992038-796f629b-b172-4231-872c-25a50ef2bd82.png)
+
 ###### For more details about the components and the structure of the project, you can read the report.pdf file that exist in the repo.
 
 
